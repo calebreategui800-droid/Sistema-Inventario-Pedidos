@@ -11,13 +11,17 @@ import java.util.Optional;
 public class ProductoService {
 
     private final List<Producto> productos = new ArrayList<>();
+    private final CategoriaService categoriaService;
     private Long contadorId = 1L;
 
-    // Datos ficticios precargados (categoriaId hace referencia a las categorias ya creadas: 1, 2, 3)
-    public ProductoService() {
-        productos.add(new Producto(contadorId++, "Laptop Lenovo", 3200.0, 15, 2L));
-        productos.add(new Producto(contadorId++, "Mouse inalambrico", 45.0, 80, 2L));
-        productos.add(new Producto(contadorId++, "Refrigeradora", 1800.0, 5, 1L));
+    // Datos ficticios precargados (categoriaId hace referencia a las categorias
+    // ya precargadas en CategoriaService: 1=Electrodomesticos, 2=Computo, 3=Muebles)
+    public ProductoService(CategoriaService categoriaService) {
+        this.categoriaService = categoriaService;
+        productos.add(new Producto(contadorId++, "Laptop Lenovo V15", "Laptop 15.6\" i5 8GB RAM", 2500.00, 10, 2L));
+        productos.add(new Producto(contadorId++, "Mouse Logitech M170", "Mouse inalambrico", 35.90, 50, 2L));
+        productos.add(new Producto(contadorId++, "Refrigeradora LG 300L", "Refrigeradora No Frost", 1800.00, 5, 1L));
+        productos.add(new Producto(contadorId++, "Escritorio de Melamine", "Escritorio 120x60 cm", 320.00, 8, 3L));
     }
 
     public List<Producto> listarTodos() {
@@ -30,10 +34,8 @@ public class ProductoService {
                 .findFirst();
     }
 
-    public List<Producto> buscarPorCategoria(Long categoriaId) {
-        return productos.stream()
-                .filter(p -> p.getCategoriaId().equals(categoriaId))
-                .toList();
+    public boolean categoriaExiste(Long categoriaId) {
+        return categoriaId != null && categoriaService.buscarPorId(categoriaId).isPresent();
     }
 
     public Producto guardar(Producto producto) {
@@ -47,6 +49,7 @@ public class ProductoService {
         if (existente.isPresent()) {
             Producto producto = existente.get();
             producto.setNombre(datosNuevos.getNombre());
+            producto.setDescripcion(datosNuevos.getDescripcion());
             producto.setPrecio(datosNuevos.getPrecio());
             producto.setStock(datosNuevos.getStock());
             producto.setCategoriaId(datosNuevos.getCategoriaId());

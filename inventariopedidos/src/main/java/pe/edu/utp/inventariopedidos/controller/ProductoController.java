@@ -31,19 +31,20 @@ public class ProductoController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/categoria/{categoriaId}")
-    public List<Producto> buscarPorCategoria(@PathVariable Long categoriaId) {
-        return productoService.buscarPorCategoria(categoriaId);
-    }
-
     @PostMapping
-    public ResponseEntity<Producto> crear(@RequestBody Producto producto) {
+    public ResponseEntity<?> crear(@RequestBody Producto producto) {
+        if (!productoService.categoriaExiste(producto.getCategoriaId())) {
+            return ResponseEntity.badRequest().body("La categoriaId indicada no existe");
+        }
         Producto nuevo = productoService.guardar(producto);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Producto> actualizar(@PathVariable Long id, @RequestBody Producto producto) {
+    public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody Producto producto) {
+        if (!productoService.categoriaExiste(producto.getCategoriaId())) {
+            return ResponseEntity.badRequest().body("La categoriaId indicada no existe");
+        }
         return productoService.actualizar(id, producto)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());

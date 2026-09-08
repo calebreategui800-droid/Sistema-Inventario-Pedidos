@@ -4,16 +4,18 @@ public class Producto {
 
     private Long id;
     private String nombre;
-    private Double precio;
-    private Integer stock;
-    private Long categoriaId;
+    private String descripcion;
+    private double precio;
+    private int stock;
+    private Long categoriaId; // relaciona con Categoria por su id
 
     public Producto() {
     }
 
-    public Producto(Long id, String nombre, Double precio, Integer stock, Long categoriaId) {
+    public Producto(Long id, String nombre, String descripcion, double precio, int stock, Long categoriaId) {
         this.id = id;
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.precio = precio;
         this.stock = stock;
         this.categoriaId = categoriaId;
@@ -35,19 +37,27 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public Double getPrecio() {
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Double precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
-    public Integer getStock() {
+    public int getStock() {
         return stock;
     }
 
-    public void setStock(Integer stock) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
 
