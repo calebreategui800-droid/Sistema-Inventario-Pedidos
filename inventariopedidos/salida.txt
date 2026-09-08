@@ -1,0 +1,719 @@
+Initialized native services in: C:\Users\jacky\.gradle\native
+Initialized jansi services in: C:\Users\jacky\.gradle\native
+Found daemon DaemonInfo{pid=17464, address=[1ddb7988-04a5-474e-ba7a-84bee80efb4e port:54932, addresses:[/127.0.0.1]], state=Idle, lastBusy=1788827325121, context=DefaultDaemonContext[uid=3b3be2dc-fddc-4995-89ea-2593ca3088b2,javaHome=C:\Users\jacky\.vscode\extensions\redhat.java-1.56.0-win32-x64\jre\21.0.12.1-win32-x86_64,javaVersion=21,javaVendor=Eclipse Adoptium,daemonRegistryDir=C:\Users\jacky\.gradle\daemon,pid=17464,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=PE,-Duser.language=es,-Duser.variant]} however its context does not match the desired criteria.
+JVM is incompatible.
+Wanted: DaemonRequestContext{jvmCriteria=C:\Program Files\Java\jdk-21 (no Daemon JVM specified, using current Java home), daemonOpts=[-XX:MaxMetaspaceSize=384m, -XX:+HeapDumpOnOutOfMemoryError, -Xms256m, -Xmx512m, -Dfile.encoding=UTF-8, -Duser.country=PE, -Duser.language=es, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+Actual: DefaultDaemonContext[uid=3b3be2dc-fddc-4995-89ea-2593ca3088b2,javaHome=C:\Users\jacky\.vscode\extensions\redhat.java-1.56.0-win32-x64\jre\21.0.12.1-win32-x86_64,javaVersion=21,javaVendor=Eclipse Adoptium,daemonRegistryDir=C:\Users\jacky\.gradle\daemon,pid=17464,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=PE,-Duser.language=es,-Duser.variant]
+
+  Looking for a different daemon...
+The client will now receive all logging from the daemon (pid: 10484). The daemon log file: C:\Users\jacky\.gradle\daemon\9.7.1\daemon-10484.out.log
+Starting 16th build in daemon [uptime: 37 mins 30.063 secs, performance: 100%, GC rate: 0.00/s, heap usage: 2% of 512 MiB, non-heap usage: 26% of 384 MiB]
+Using 12 worker leases.
+Operational build model parameters: {cachingModelBuilding=false, configurationCache=false, configurationCacheDisabledReason=null, configurationCacheParallelLoad=false, configurationCacheParallelStore=false, configureOnDemand=false, invalidateCoupledProjects=false, isolatedProjects=false, isolatedProjectsDiagnostics=false, isolatedProjectsDangerouslyIgnoreProblems=false, modelAsProjectDependency=false, modelBuilding=false, parallelModelBuilding=false, parallelProjectConfiguration=false, parallelProjectExecution=false, vintage=true}
+Now considering [C:\Users\jacky\OneDrive\Escritorio\Comandos\Practicas_Webs\UTP\Sis-Inventario-Pedido\Sistema-Inventario-Pedidos\inventariopedidos] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file 'C:\Users\jacky\OneDrive\Escritorio\Comandos\Practicas_Webs\UTP\Sis-Inventario-Pedido\Sistema-Inventario-Pedidos\inventariopedidos\settings.gradle'.
+Projects loaded. Root project using build file 'C:\Users\jacky\OneDrive\Escritorio\Comandos\Practicas_Webs\UTP\Sis-Inventario-Pedido\Sistema-Inventario-Pedidos\inventariopedidos\build.gradle'.
+Included projects: [root project 'inventariopedidos']
+
+> Configure project :
+Evaluating root project 'inventariopedidos' using build file 'C:\Users\jacky\OneDrive\Escritorio\Comandos\Practicas_Webs\UTP\Sis-Inventario-Pedido\Sistema-Inventario-Pedidos\inventariopedidos\build.gradle'.
+Resolved plugin [id: 'java']
+Resolved plugin [id: 'org.springframework.boot', version: '4.1.1']
+Resolved plugin [id: 'io.spring.dependency-management', version: '1.1.7']
+Applying dependency management to configuration 'annotationProcessor' in project 'inventariopedidos'
+Applying dependency management to configuration 'apiElements' in project 'inventariopedidos'
+Applying dependency management to configuration 'archives' in project 'inventariopedidos'
+Applying dependency management to configuration 'bootArchives' in project 'inventariopedidos'
+Applying dependency management to configuration 'compileClasspath' in project 'inventariopedidos'
+Applying dependency management to configuration 'compileOnly' in project 'inventariopedidos'
+Applying dependency management to configuration 'default' in project 'inventariopedidos'
+Applying dependency management to configuration 'developmentOnly' in project 'inventariopedidos'
+Applying dependency management to configuration 'implementation' in project 'inventariopedidos'
+Applying dependency management to configuration 'mainSourceElements' in project 'inventariopedidos'
+Applying dependency management to configuration 'productionRuntimeClasspath' in project 'inventariopedidos'
+Applying dependency management to configuration 'runtimeClasspath' in project 'inventariopedidos'
+Applying dependency management to configuration 'runtimeElements' in project 'inventariopedidos'
+Applying dependency management to configuration 'runtimeOnly' in project 'inventariopedidos'
+Applying dependency management to configuration 'testAndDevelopmentOnly' in project 'inventariopedidos'
+Applying dependency management to configuration 'testAnnotationProcessor' in project 'inventariopedidos'
+Applying dependency management to configuration 'testCompileClasspath' in project 'inventariopedidos'
+Applying dependency management to configuration 'testCompileOnly' in project 'inventariopedidos'
+Applying dependency management to configuration 'testImplementation' in project 'inventariopedidos'
+Applying dependency management to configuration 'testResultsElementsForTest' in project 'inventariopedidos'
+Applying dependency management to configuration 'testRuntimeClasspath' in project 'inventariopedidos'
+Applying dependency management to configuration 'testRuntimeOnly' in project 'inventariopedidos'
+All projects evaluated.
+Task name matched 'test'
+Selected primary task 'test' from project :
+Resolving global dependency management for project 'inventariopedidos'
+Excluding []
+Excluding []
+Excluding []
+Excluding []
+Excluding []
+Excluding []
+Tasks to be executed: [task ':compileJava', task ':processResources', task ':classes', task ':compileTestJava', task ':processTestResources', task ':testClasses', task ':test']
+Tasks that were excluded: []
+Resolve mutations for :compileJava (Thread[#581,Execution worker,5,main]) started.
+:compileJava (Thread[#581,Execution worker,5,main]) started.
+
+> Task :compileJava UP-TO-DATE
+Custom actions are attached to task ':compileJava'.
+Caching disabled for task ':compileJava' because:
+  Build cache is disabled
+Skipping task ':compileJava' as it is up-to-date.
+Resolve mutations for :processResources (Thread[#581,Execution worker,5,main]) started.
+:processResources (Thread[#581,Execution worker,5,main]) started.
+
+> Task :processResources UP-TO-DATE
+Caching disabled for task ':processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':processResources' as it is up-to-date.
+Resolve mutations for :classes (Thread[#581,Execution worker,5,main]) started.
+:classes (Thread[#581,Execution worker,5,main]) started.
+
+> Task :classes UP-TO-DATE
+Skipping task ':classes' as it has no actions.
+Resolve mutations for :compileTestJava (Thread[#581,Execution worker,5,main]) started.
+:compileTestJava (Thread[#581,Execution worker,5,main]) started.
+
+> Task :compileTestJava UP-TO-DATE
+Custom actions are attached to task ':compileTestJava'.
+Caching disabled for task ':compileTestJava' because:
+  Build cache is disabled
+Skipping task ':compileTestJava' as it is up-to-date.
+Resolve mutations for :processTestResources (Thread[#581,Execution worker,5,main]) started.
+:processTestResources (Thread[#581,Execution worker,5,main]) started.
+
+> Task :processTestResources NO-SOURCE
+Skipping task ':processTestResources' as it has no source files and no previous output files.
+Resolve mutations for :testClasses (Thread[#581,Execution worker,5,main]) started.
+:testClasses (Thread[#581,Execution worker,5,main]) started.
+
+> Task :testClasses UP-TO-DATE
+Skipping task ':testClasses' as it has no actions.
+Resolve mutations for :test (Thread[#581,Execution worker,5,main]) started.
+:test (Thread[#581,Execution worker,5,main]) started.
+Gradle Test Executor 2 started executing tests.
+
+> Task :test
+Caching disabled for task ':test' because:
+  Build cache is disabled
+Task ':test' is not up-to-date because:
+  Task has failed previously.
+Starting process 'Gradle Test Executor 2'. Working directory: C:\Users\jacky\OneDrive\Escritorio\Comandos\Practicas_Webs\UTP\Sis-Inventario-Pedido\Sistema-Inventario-Pedidos\inventariopedidos Command: C:\Program Files\Java\jdk-21\bin\java.exe -Dorg.gradle.internal.worker.tmpdir=C:\Users\jacky\OneDrive\Escritorio\Comandos\Practicas_Webs\UTP\Sis-Inventario-Pedido\Sistema-Inventario-Pedidos\inventariopedidos\build\tmp\test\work @C:\Users\jacky\.gradle\.tmp\gradle-worker-classpath16362741351828893576txt -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=PE -Duser.language=es -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 2'
+Successfully started process 'Gradle Test Executor 2'
+
+ProductoControllerTest STANDARD_OUT
+    19:35:36.655 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [pe.edu.utp.inventariopedidos.controller.ProductoControllerTest]: ProductoControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+    19:35:36.759 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration pe.edu.utp.inventariopedidos.InventariopedidosApplication for test class pe.edu.utp.inventariopedidos.controller.ProductoControllerTest
+    19:35:36.843 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [pe.edu.utp.inventariopedidos.controller.ProductoControllerTest]: ProductoControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+    19:35:36.846 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration pe.edu.utp.inventariopedidos.InventariopedidosApplication for test class pe.edu.utp.inventariopedidos.controller.ProductoControllerTest
+
+      .   ____          _            __ _ _
+     /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+    ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+     \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+      '  |____| .__|_| |_|_| |_\__, | / / / /
+     =========|_|==============|___/=/_/_/_/
+
+     :: Spring Boot ::                (v4.1.1)
+
+    2026-09-07T19:35:37.119-05:00  INFO 13992 --- [inventariopedidos] [    Test worker] p.e.u.i.c.ProductoControllerTest         : Starting ProductoControllerTest using Java 21.0.7 with PID 13992 (started by jacky in C:\Users\jacky\OneDrive\Escritorio\Comandos\Practicas_Webs\UTP\Sis-Inventario-Pedido\Sistema-Inventario-Pedidos\inventariopedidos)
+    2026-09-07T19:35:37.120-05:00  INFO 13992 --- [inventariopedidos] [    Test worker] p.e.u.i.c.ProductoControllerTest         : No active profile set, falling back to 1 default profile: "default"
+    2026-09-07T19:35:37.943-05:00  INFO 13992 --- [inventariopedidos] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+    2026-09-07T19:35:37.943-05:00  INFO 13992 --- [inventariopedidos] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+    2026-09-07T19:35:37.946-05:00  INFO 13992 --- [inventariopedidos] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+    2026-09-07T19:35:37.972-05:00  INFO 13992 --- [inventariopedidos] [    Test worker] p.e.u.i.c.ProductoControllerTest         : Started ProductoControllerTest in 1.076 seconds (process running for 2.321)
+
+ProductoControllerTest > crear_conCategoriaInexistente_deberiaRetornar400() STANDARD_ERROR
+    Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+    WARNING: A Java agent has been loaded dynamically (C:\Users\jacky\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.18.11\82212e5b3633e7a65fca8bec525762cfb6c9bae4\byte-buddy-agent-1.18.11.jar)
+    WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+    WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+    WARNING: Dynamic loading of agents will be disallowed by default in a future release
+
+Gradle Test Executor 2 finished executing tests.
+
+> Task :test FAILED
+
+ProductoControllerTest > crear_conCategoriaInexistente_deberiaRetornar400() STANDARD_OUT
+
+    MockHttpServletRequest:
+          HTTP Method = POST
+          Request URI = /api/productos
+           Parameters = {}
+              Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"122"]
+                 Body = {"id":null,"nombre":"Producto Invalido","descripcion":"Categoria que no existe","precio":99.0,"stock":1,"categoriaId":999}
+        Session Attrs = {}
+
+    Handler:
+                 Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 404
+        Error message = No static resource api/productos.
+              Headers = []
+         Content type = null
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+ProductoControllerTest > crear_conCategoriaInexistente_deberiaRetornar400() FAILED
+    java.lang.AssertionError: Status expected:<400> but was:<404>
+        at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:62)
+        at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:129)
+        at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$0(StatusResultMatchers.java:600)
+        at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+        at pe.edu.utp.inventariopedidos.controller.ProductoControllerTest.crear_conCategoriaInexistente_deberiaRetornar400(ProductoControllerTest.java:96)
+
+ProductoControllerTest > actualizar_productoExistente_deberiaRetornar200ConDatosActualizados() STANDARD_OUT
+
+    MockHttpServletRequest:
+          HTTP Method = POST
+          Request URI = /api/productos
+           Parameters = {}
+              Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"120"]
+                 Body = {"id":null,"nombre":"Impresora Laser","descripcion":"Impresora blanco y negro","precio":400.0,"stock":3,"categoriaId":2}
+        Session Attrs = {}
+
+    Handler:
+                 Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 404
+        Error message = No static resource api/productos.
+              Headers = []
+         Content type = null
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+ProductoControllerTest > actualizar_productoExistente_deberiaRetornar200ConDatosActualizados() FAILED
+    tools.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+     at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); byte offset: #UNKNOWN]
+        at app//tools.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:63)
+        at app//tools.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:2738)
+        at app//tools.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:2629)
+        at app//tools.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:1544)
+        at app//pe.edu.utp.inventariopedidos.controller.ProductoControllerTest.actualizar_productoExistente_deberiaRetornar200ConDatosActualizados(ProductoControllerTest.java:127)
+
+ProductoControllerTest > listarTodos_deberiaContenerUnProductoPrecargadoConocido() STANDARD_OUT
+
+    MockHttpServletRequest:
+          HTTP Method = GET
+          Request URI = /api/productos
+           Parameters = {}
+              Headers = []
+                 Body = null
+        Session Attrs = {}
+
+    Handler:
+                 Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 404
+        Error message = No static resource api/productos.
+              Headers = []
+         Content type = null
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+ProductoControllerTest > listarTodos_deberiaContenerUnProductoPrecargadoConocido() FAILED
+    java.lang.AssertionError: No value at JSON path "$[?(@.nombre=='Laptop Lenovo V15')]"
+        at org.springframework.test.util.JsonPathExpectationsHelper.evaluateJsonPath(JsonPathExpectationsHelper.java:350)
+        at org.springframework.test.util.JsonPathExpectationsHelper.assertExistsAndReturn(JsonPathExpectationsHelper.java:386)
+        at org.springframework.test.util.JsonPathExpectationsHelper.exists(JsonPathExpectationsHelper.java:239)
+        at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$exists$0(JsonPathResultMatchers.java:123)
+        at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+        at pe.edu.utp.inventariopedidos.controller.ProductoControllerTest.listarTodos_deberiaContenerUnProductoPrecargadoConocido(ProductoControllerTest.java:45)
+
+        Caused by:
+        java.lang.IllegalArgumentException: json can not be null or empty
+            at com.jayway.jsonpath.internal.Utils.notEmpty(Utils.java:401)
+            at com.jayway.jsonpath.JsonPath.read(JsonPath.java:390)
+            at org.springframework.test.util.JsonPathExpectationsHelper.evaluateJsonPath(JsonPathExpectationsHelper.java:347)
+            ... 5 more
+
+ProductoControllerTest > buscarPorId_existente_deberiaRetornar200ConElProducto() STANDARD_OUT
+
+    MockHttpServletRequest:
+          HTTP Method = GET
+          Request URI = /api/productos/1
+           Parameters = {}
+              Headers = []
+                 Body = null
+        Session Attrs = {}
+
+    Handler:
+                 Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 404
+        Error message = No static resource api/productos/1.
+              Headers = []
+         Content type = null
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+ProductoControllerTest > buscarPorId_existente_deberiaRetornar200ConElProducto() FAILED
+    java.lang.AssertionError: Status expected:<200> but was:<404>
+        at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:62)
+        at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:129)
+        at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$0(StatusResultMatchers.java:600)
+        at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+        at pe.edu.utp.inventariopedidos.controller.ProductoControllerTest.buscarPorId_existente_deberiaRetornar200ConElProducto(ProductoControllerTest.java:55)
+
+ProductoControllerTest > actualizar_conCategoriaInexistente_deberiaRetornar400() STANDARD_OUT
+
+    MockHttpServletRequest:
+          HTTP Method = POST
+          Request URI = /api/productos
+           Parameters = {}
+              Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"117"]
+                 Body = {"id":null,"nombre":"Parlante Bluetooth","descripcion":"Parlante portatil","precio":120.0,"stock":12,"categoriaId":2}
+        Session Attrs = {}
+
+    Handler:
+                 Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 404
+        Error message = No static resource api/productos.
+              Headers = []
+         Content type = null
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+ProductoControllerTest > actualizar_conCategoriaInexistente_deberiaRetornar400() FAILED
+    tools.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+     at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); byte offset: #UNKNOWN]
+        at app//tools.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:63)
+        at app//tools.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:2738)
+        at app//tools.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:2629)
+        at app//tools.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:1544)
+        at app//pe.edu.utp.inventariopedidos.controller.ProductoControllerTest.actualizar_conCategoriaInexistente_deberiaRetornar400(ProductoControllerTest.java:156)
+
+ProductoControllerTest > listarTodos_deberiaRetornarListaConLosDatosPrecargados() STANDARD_OUT
+
+    MockHttpServletRequest:
+          HTTP Method = GET
+          Request URI = /api/productos
+           Parameters = {}
+              Headers = []
+                 Body = null
+        Session Attrs = {}
+
+    Handler:
+                 Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 404
+        Error message = No static resource api/productos.
+              Headers = []
+         Content type = null
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+ProductoControllerTest > listarTodos_deberiaRetornarListaConLosDatosPrecargados() FAILED
+    java.lang.AssertionError: No value at JSON path "$"
+        at org.springframework.test.util.JsonPathExpectationsHelper.evaluateJsonPath(JsonPathExpectationsHelper.java:350)
+        at org.springframework.test.util.JsonPathExpectationsHelper.assertExistsAndReturn(JsonPathExpectationsHelper.java:386)
+        at org.springframework.test.util.JsonPathExpectationsHelper.assertValueIsArray(JsonPathExpectationsHelper.java:214)
+        at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$isArray$0(JsonPathResultMatchers.java:226)
+        at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+        at pe.edu.utp.inventariopedidos.controller.ProductoControllerTest.listarTodos_deberiaRetornarListaConLosDatosPrecargados(ProductoControllerTest.java:38)
+
+        Caused by:
+        java.lang.IllegalArgumentException: json can not be null or empty
+            at com.jayway.jsonpath.internal.Utils.notEmpty(Utils.java:401)
+            at com.jayway.jsonpath.JsonPath.read(JsonPath.java:390)
+            at org.springframework.test.util.JsonPathExpectationsHelper.evaluateJsonPath(JsonPathExpectationsHelper.java:347)
+            ... 5 more
+
+ProductoControllerTest > buscarPorId_deberiaRetornarCategoriaIdCorrecta() STANDARD_OUT
+
+    MockHttpServletRequest:
+          HTTP Method = GET
+          Request URI = /api/productos/2
+           Parameters = {}
+              Headers = []
+                 Body = null
+        Session Attrs = {}
+
+    Handler:
+                 Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 404
+        Error message = No static resource api/productos/2.
+              Headers = []
+         Content type = null
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+ProductoControllerTest > buscarPorId_deberiaRetornarCategoriaIdCorrecta() FAILED
+    java.lang.AssertionError: Status expected:<200> but was:<404>
+        at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:62)
+        at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:129)
+        at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$0(StatusResultMatchers.java:600)
+        at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+        at pe.edu.utp.inventariopedidos.controller.ProductoControllerTest.buscarPorId_deberiaRetornarCategoriaIdCorrecta(ProductoControllerTest.java:69)
+
+ProductoControllerTest > listarTodos_deberiaRetornarStatus200() STANDARD_OUT
+
+    MockHttpServletRequest:
+          HTTP Method = GET
+          Request URI = /api/productos
+           Parameters = {}
+              Headers = []
+                 Body = null
+        Session Attrs = {}
+
+    Handler:
+                 Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 404
+        Error message = No static resource api/productos.
+              Headers = []
+         Content type = null
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+ProductoControllerTest > listarTodos_deberiaRetornarStatus200() FAILED
+    java.lang.AssertionError: Status expected:<200> but was:<404>
+        at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:62)
+        at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:129)
+        at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$0(StatusResultMatchers.java:600)
+        at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+        at pe.edu.utp.inventariopedidos.controller.ProductoControllerTest.listarTodos_deberiaRetornarStatus200(ProductoControllerTest.java:32)
+
+ProductoControllerTest > eliminar_productoExistente_deberiaRetornar204() STANDARD_OUT
+
+    MockHttpServletRequest:
+          HTTP Method = POST
+          Request URI = /api/productos
+           Parameters = {}
+              Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"102"]
+                 Body = {"id":null,"nombre":"Webcam HD","descripcion":"Webcam 1080p","precio":90.0,"stock":25,"categoriaId":2}
+        Session Attrs = {}
+
+    Handler:
+                 Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 404
+        Error message = No static resource api/productos.
+              Headers = []
+         Content type = null
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+ProductoControllerTest > eliminar_productoExistente_deberiaRetornar204() FAILED
+    tools.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+     at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); byte offset: #UNKNOWN]
+        at app//tools.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:63)
+        at app//tools.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:2738)
+        at app//tools.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:2629)
+        at app//tools.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:1544)
+        at app//pe.edu.utp.inventariopedidos.controller.ProductoControllerTest.eliminar_productoExistente_deberiaRetornar204(ProductoControllerTest.java:177)
+
+ProductoControllerTest > eliminar_productoEliminado_noDeberiaEncontrarsePorId() STANDARD_OUT
+
+    MockHttpServletRequest:
+          HTTP Method = POST
+          Request URI = /api/productos
+           Parameters = {}
+              Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"114"]
+                 Body = {"id":null,"nombre":"Silla Gamer","descripcion":"Silla ergonomica gamer","precio":700.0,"stock":4,"categoriaId":3}
+        Session Attrs = {}
+
+    Handler:
+                 Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 404
+        Error message = No static resource api/productos.
+              Headers = []
+         Content type = null
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+ProductoControllerTest > eliminar_productoEliminado_noDeberiaEncontrarsePorId() FAILED
+    tools.jackson.databind.exc.MismatchedInputException: No content to map due to end-of-input
+     at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); byte offset: #UNKNOWN]
+        at app//tools.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:63)
+        at app//tools.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:2738)
+        at app//tools.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:2629)
+        at app//tools.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:1544)
+        at app//pe.edu.utp.inventariopedidos.controller.ProductoControllerTest.eliminar_productoEliminado_noDeberiaEncontrarsePorId(ProductoControllerTest.java:196)
+
+ProductoControllerTest > crear_conDatosValidos_deberiaRetornar201ConIdAsignado() STANDARD_OUT
+
+    MockHttpServletRequest:
+          HTTP Method = POST
+          Request URI = /api/productos
+           Parameters = {}
+              Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"124"]
+                 Body = {"id":null,"nombre":"Teclado Mecanico","descripcion":"Teclado RGB switches rojos","precio":150.0,"stock":20,"categoriaId":2}
+        Session Attrs = {}
+
+    Handler:
+                 Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 404
+        Error message = No static resource api/productos.
+              Headers = []
+         Content type = null
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+ProductoControllerTest > crear_conDatosValidos_deberiaRetornar201ConIdAsignado() FAILED
+    java.lang.AssertionError: Status expected:<201> but was:<404>
+        at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:62)
+        at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:129)
+        at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$0(StatusResultMatchers.java:600)
+        at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+        at pe.edu.utp.inventariopedidos.controller.ProductoControllerTest.crear_conDatosValidos_deberiaRetornar201ConIdAsignado(ProductoControllerTest.java:84)
+
+ProductoControllerTest > crear_productoCreado_deberiaPoderConsultarsePorSuNuevoId() STANDARD_OUT
+
+    MockHttpServletRequest:
+          HTTP Method = POST
+          Request URI = /api/productos
+           Parameters = {}
+              Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"115"]
+                 Body = {"id":null,"nombre":"Monitor 24 pulgadas","descripcion":"Monitor Full HD","precio":600.0,"stock":7,"categoriaId":2}
+        Session Attrs = {}
+
+    Handler:
+                 Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+    Async:
+        Async started = false
+         Async result = null
+
+    Resolved Exception:
+                 Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+    ModelAndView:
+            View name = null
+                 View = null
+                Model = null
+
+    FlashMap:
+           Attributes = null
+
+    MockHttpServletResponse:
+               Status = 404
+        Error message = No static resource api/productos.
+              Headers = []
+         Content type = null
+                 Body = 
+        Forwarded URL = null
+       Redirected URL = null
+              Cookies = []
+
+ProductoControllerTest > crear_productoCreado_deberiaPoderConsultarsePorSuNuevoId() FAILED
+    java.lang.AssertionError: Status expected:<201> but was:<404>
+        at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:62)
+        at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:129)
+        at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$0(StatusResultMatchers.java:600)
+        at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+        at pe.edu.utp.inventariopedidos.controller.ProductoControllerTest.crear_productoCreado_deberiaPoderConsultarsePorSuNuevoId(ProductoControllerTest.java:106)
+Generating HTML test report...
+Finished generating test html results (0.021 secs) into: C:\Users\jacky\OneDrive\Escritorio\Comandos\Practicas_Webs\UTP\Sis-Inventario-Pedido\Sistema-Inventario-Pedidos\inventariopedidos\build\reports\tests\test
+Finished generating test XML results (0.002 secs) into: C:\Users\jacky\OneDrive\Escritorio\Comandos\Practicas_Webs\UTP\Sis-Inventario-Pedido\Sistema-Inventario-Pedidos\inventariopedidos\build\test-results\test
+4 actionable tasks: 1 executed, 3 up-to-date
+Watched directory hierarchies: [C:\Users\jacky\OneDrive\Escritorio\Comandos\Practicas_Webs\UTP\Sis-Inventario-Pedido\Sistema-Inventario-Pedidos\inventariopedidos]
