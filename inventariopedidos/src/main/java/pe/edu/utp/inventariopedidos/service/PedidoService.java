@@ -1,62 +1,56 @@
 package pe.edu.utp.inventariopedidos.service;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pe.edu.utp.inventariopedidos.model.Pedido;
+import pe.edu.utp.inventariopedidos.repository.PedidoRepository;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class PedidoService {
 
-    private final List<Pedido> pedidos = new ArrayList<>();
-    private Long contadorId = 1L;
+    private final PedidoRepository pedidoRepository;
 
-    // Datos ficticios precargados (clienteId hace referencia a los clientes ya creados)
-    public PedidoService() {
-        pedidos.add(new Pedido(contadorId++, 1L, LocalDate.of(2026, 9, 1), "ENTREGADO", 3245.0));
-        pedidos.add(new Pedido(contadorId++, 1L, LocalDate.of(2026, 9, 5), "PENDIENTE", 1800.0));
-        pedidos.add(new Pedido(contadorId++, 2L, LocalDate.of(2026, 9, 6), "ENVIADO", 45.0));
+    public PedidoService(PedidoRepository pedidoRepository) {
+        this.pedidoRepository = pedidoRepository;
     }
 
     public List<Pedido> listarTodos() {
-        return pedidos;
+        return pedidoRepository.findAll(Sort.by("id"));
     }
 
     public Optional<Pedido> buscarPorId(Long id) {
-        return pedidos.stream()
-                .filter(p -> p.getId().equals(id))
-                .findFirst();
+        return pedidoRepository.findById(id);
     }
 
     public List<Pedido> buscarPorCliente(Long clienteId) {
-        return pedidos.stream()
-                .filter(p -> p.getClienteId().equals(clienteId))
-                .toList();
+        return pedidoRepository.findByClienteIdOrderByIdAsc(clienteId);
     }
 
     public Pedido guardar(Pedido pedido) {
-        pedido.setId(contadorId++);
-        pedidos.add(pedido);
-        return pedido;
+        pedido.setId(null); // el id lo genera la base de datos
+        return pedidoRepository.save(pedido);
     }
 
+    @Transactional
     public Optional<Pedido> actualizar(Long id, Pedido datosNuevos) {
-        Optional<Pedido> existente = buscarPorId(id);
-        if (existente.isPresent()) {
-            Pedido pedido = existente.get();
+        return pedidoRepository.findById(id).map(pedido -> {
             pedido.setClienteId(datosNuevos.getClienteId());
             pedido.setFechaPedido(datosNuevos.getFechaPedido());
             pedido.setEstado(datosNuevos.getEstado());
             pedido.setTotal(datosNuevos.getTotal());
-            return Optional.of(pedido);
-        }
-        return Optional.empty();
+            return pedidoRepository.save(pedido);
+        });
     }
 
     public boolean eliminar(Long id) {
-        return pedidos.removeIf(p -> p.getId().equals(id));
+        if (pedidoRepository.existsById(id)) {
+            pedidoRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

@@ -1,54 +1,51 @@
 package pe.edu.utp.inventariopedidos.service;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pe.edu.utp.inventariopedidos.model.Categoria;
+import pe.edu.utp.inventariopedidos.repository.CategoriaRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class CategoriaService {
 
-    private final List<Categoria> categorias = new ArrayList<>();
-    private Long contadorId = 1L;
+    private final CategoriaRepository categoriaRepository;
 
-    // Datos ficticios precargados
-    public CategoriaService() {
-        categorias.add(new Categoria(contadorId++, "Electrodomesticos", "Equipos para el hogar", "ACTIVO"));
-        categorias.add(new Categoria(contadorId++, "Computo", "Laptops, PCs y accesorios", "ACTIVO"));
-        categorias.add(new Categoria(contadorId++, "Muebles", "Mobiliario de oficina y hogar", "ACTIVO"));
+    public CategoriaService(CategoriaRepository categoriaRepository) {
+        this.categoriaRepository = categoriaRepository;
     }
 
     public List<Categoria> listarTodas() {
-        return categorias;
+        return categoriaRepository.findAll(Sort.by("id"));
     }
 
     public Optional<Categoria> buscarPorId(Long id) {
-        return categorias.stream()
-                .filter(c -> c.getId().equals(id))
-                .findFirst();
+        return categoriaRepository.findById(id);
     }
 
     public Categoria guardar(Categoria categoria) {
-        categoria.setId(contadorId++);
-        categorias.add(categoria);
-        return categoria;
+        categoria.setId(null); // el id lo genera la base de datos
+        return categoriaRepository.save(categoria);
     }
 
+    @Transactional
     public Optional<Categoria> actualizar(Long id, Categoria datosNuevos) {
-        Optional<Categoria> existente = buscarPorId(id);
-        if (existente.isPresent()) {
-            Categoria categoria = existente.get();
+        return categoriaRepository.findById(id).map(categoria -> {
             categoria.setNombre(datosNuevos.getNombre());
             categoria.setDescripcion(datosNuevos.getDescripcion());
             categoria.setEstado(datosNuevos.getEstado());
-            return Optional.of(categoria);
-        }
-        return Optional.empty();
+            return categoriaRepository.save(categoria);
+        });
     }
 
     public boolean eliminar(Long id) {
-        return categorias.removeIf(c -> c.getId().equals(id));
+        if (categoriaRepository.existsById(id)) {
+            categoriaRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }
