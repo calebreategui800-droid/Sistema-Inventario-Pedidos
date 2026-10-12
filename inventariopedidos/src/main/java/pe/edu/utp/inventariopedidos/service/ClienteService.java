@@ -1,87 +1,53 @@
 package pe.edu.utp.inventariopedidos.service;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pe.edu.utp.inventariopedidos.model.Cliente;
+import pe.edu.utp.inventariopedidos.repository.ClienteRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ClienteService {
 
-    private final List<Cliente> clientes = new ArrayList<>();
-    private Long contadorId = 1L;
+    private final ClienteRepository clienteRepository;
 
-    public ClienteService() {
-
-        clientes.add(new Cliente(
-                contadorId++,
-                "Carlos",
-                "Ramirez",
-                "carlos@gmail.com",
-                "987654321",
-                "ACTIVO"
-        ));
-
-        clientes.add(new Cliente(
-                contadorId++,
-                "Maria",
-                "Lopez",
-                "maria@gmail.com",
-                "956123789",
-                "ACTIVO"
-        ));
-
-        clientes.add(new Cliente(
-                contadorId++,
-                "Luis",
-                "Torres",
-                "luis@gmail.com",
-                "945678123",
-                "ACTIVO"
-        ));
+    public ClienteService(ClienteRepository clienteRepository) {
+        this.clienteRepository = clienteRepository;
     }
 
     public List<Cliente> listarTodos() {
-        return clientes;
+        return clienteRepository.findAll(Sort.by("id"));
     }
 
     public Optional<Cliente> buscarPorId(Long id) {
-        return clientes.stream()
-                .filter(cliente -> cliente.getId().equals(id))
-                .findFirst();
+        return clienteRepository.findById(id);
     }
 
     public Cliente guardar(Cliente cliente) {
-        cliente.setId(contadorId++);
-        clientes.add(cliente);
-        return cliente;
+        cliente.setId(null); // el id lo genera la base de datos
+        return clienteRepository.save(cliente);
     }
 
+    @Transactional
     public Optional<Cliente> actualizar(Long id, Cliente datosNuevos) {
-
-        Optional<Cliente> existente = buscarPorId(id);
-
-        if (existente.isPresent()) {
-
-            Cliente cliente = existente.get();
-
+        return clienteRepository.findById(id).map(cliente -> {
             cliente.setNombre(datosNuevos.getNombre());
             cliente.setApellido(datosNuevos.getApellido());
             cliente.setEmail(datosNuevos.getEmail());
             cliente.setTelefono(datosNuevos.getTelefono());
             cliente.setEstado(datosNuevos.getEstado());
-
-            return Optional.of(cliente);
-        }
-
-        return Optional.empty();
+            return clienteRepository.save(cliente);
+        });
     }
 
     public boolean eliminar(Long id) {
-        return clientes.removeIf(
-                cliente -> cliente.getId().equals(id)
-        );
+        if (clienteRepository.existsById(id)) {
+            clienteRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }
