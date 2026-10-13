@@ -6,17 +6,15 @@ import pe.edu.utp.inventariopedidos.model.Categoria;
 import pe.edu.utp.inventariopedidos.model.Cliente;
 import pe.edu.utp.inventariopedidos.model.Pedido;
 import pe.edu.utp.inventariopedidos.model.Producto;
+import pe.edu.utp.inventariopedidos.user.Role;
 import pe.edu.utp.inventariopedidos.repository.CategoriaRepository;
 import pe.edu.utp.inventariopedidos.repository.ClienteRepository;
 import pe.edu.utp.inventariopedidos.repository.PedidoRepository;
 import pe.edu.utp.inventariopedidos.repository.ProductoRepository;
+import pe.edu.utp.inventariopedidos.repository.RoleRepository;
 
 import java.time.LocalDate;
 
-/**
- * Carga datos de ejemplo en la base de datos al arrancar la aplicacion.
- * Solo inserta si las tablas estan vacias, asi que no duplica datos en cada reinicio.
- */
 @Component
 public class DataInitializer implements CommandLineRunner {
 
@@ -24,19 +22,30 @@ public class DataInitializer implements CommandLineRunner {
     private final ProductoRepository productoRepository;
     private final ClienteRepository clienteRepository;
     private final PedidoRepository pedidoRepository;
+    private final RoleRepository roleRepository; 
 
+    // 2. Agregarlo al constructor
     public DataInitializer(CategoriaRepository categoriaRepository,
                            ProductoRepository productoRepository,
                            ClienteRepository clienteRepository,
-                           PedidoRepository pedidoRepository) {
+                           PedidoRepository pedidoRepository,
+                           RoleRepository roleRepository) {
         this.categoriaRepository = categoriaRepository;
         this.productoRepository = productoRepository;
         this.clienteRepository = clienteRepository;
         this.pedidoRepository = pedidoRepository;
+        this.roleRepository = roleRepository;
     }
 
     @Override
     public void run(String... args) {
+        if (roleRepository.count() == 0) {
+            Role userRole = new Role();
+            userRole.setName("USER");
+            roleRepository.save(userRole);
+            System.out.println("Rol USER creado exitosamente en la base H2");
+        }
+
         if (categoriaRepository.count() == 0) {
             cargarCategoriasYProductos();
         }
