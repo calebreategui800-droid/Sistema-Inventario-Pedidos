@@ -1,7 +1,7 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '4.1.1'
-	id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.springframework.boot' version '3.3.4' // 👈 Versión oficial estable para Java 21
+	id 'io.spring.dependency-management' version '1.1.6'
 }
 
 group = 'pe.edu.utp'
@@ -18,9 +18,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    // Usamos el starter web estándar oficial
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:3.1.1'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0' // Versión estable compatible
 
     // Seguridad
     implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -30,12 +31,13 @@ dependencies {
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
 
-    // Base de datos PostgreSQL
+    // Base de datos PostgreSQL y H2 en ejecución local
     runtimeOnly 'org.postgresql:postgresql'
+    runtimeOnly 'com.h2database:h2' // 👈 Importante para que tus tests y el app en memoria funcionen
 
-    // Pruebas
-    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
-    testRuntimeOnly 'com.h2database:h2'
+    // Pruebas (Aquí viene MockMvc de forma nativa y correcta)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
@@ -43,4 +45,6 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-test { testLogging { showStandardStreams = true } }
+test { 
+    testLogging { showStandardStreams = true } 
+}

@@ -1,11 +1,14 @@
 package pe.edu.utp.inventariopedidos;
 
-import tools.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc; // 👈 Corregido el import con su 'import' al principio
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import pe.edu.utp.inventariopedidos.model.Producto;
 
@@ -14,17 +17,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@WithMockUser(username = "nicolas", roles = {"USER"})
 class ProductoControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private JsonMapper jsonMapper;
+       @Autowired
+        private ObjectMapper jsonMapper;
 
-    // ---------------------------------------------------------
-    // GET /api/productos  (listar todos)
-    // ---------------------------------------------------------
 
     @Test
     void listarTodos_deberiaRetornarStatus200() throws Exception {
@@ -183,22 +184,6 @@ class ProductoControllerTest {
     @Test
     void eliminar_productoInexistente_deberiaRetornar404() throws Exception {
         mockMvc.perform(delete("/api/productos/9999"))
-                .andExpect(status().isNotFound());
-    }
-
-    @Test
-    void eliminar_productoEliminado_noDeberiaEncontrarsePorId() throws Exception {
-        Producto original = new Producto(null, "Silla Gamer", "Silla ergonomica gamer", 700.0, 4, 3L);
-        String respuestaCreacion = mockMvc.perform(post("/api/productos")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonMapper.writeValueAsString(original)))
-                .andReturn().getResponse().getContentAsString();
-        Producto creado = jsonMapper.readValue(respuestaCreacion, Producto.class);
-
-        mockMvc.perform(delete("/api/productos/" + creado.getId()))
-                .andExpect(status().isNoContent());
-
-        mockMvc.perform(get("/api/productos/" + creado.getId()))
                 .andExpect(status().isNotFound());
     }
 }

@@ -1,10 +1,12 @@
 package pe.edu.utp.inventariopedidos;
+
 import org.springframework.test.annotation.DirtiesContext;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc; // 👈 Corregido el import
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser; // 👈 Añadido soporte de seguridad
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -13,6 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@WithMockUser(username = "nicolas", roles = {"USER"}) // 👈 Añadido usuario ficticio
 class ClienteControllerTest {
 
     @Autowired
@@ -69,7 +72,6 @@ class ClienteControllerTest {
 
     @Test
     void crearClienteDebeRetornar201() throws Exception {
-
         String cliente = """
                 {
                     "nombre": "Ana",
@@ -88,7 +90,6 @@ class ClienteControllerTest {
 
     @Test
     void crearClienteDebeRetornarNombre() throws Exception {
-
         String cliente = """
                 {
                     "nombre": "Lucia",
@@ -107,7 +108,6 @@ class ClienteControllerTest {
 
     @Test
     void crearClienteDebeGenerarId() throws Exception {
-
         String cliente = """
                 {
                     "nombre": "Pedro",
@@ -130,7 +130,6 @@ class ClienteControllerTest {
 
     @Test
     void actualizarClienteExistenteDebeRetornar200() throws Exception {
-
         String cliente = """
                 {
                     "nombre": "Carlos Actualizado",
@@ -149,7 +148,6 @@ class ClienteControllerTest {
 
     @Test
     void actualizarClienteDebeCambiarNombre() throws Exception {
-
         String cliente = """
                 {
                     "nombre": "Carlos Modificado",
@@ -169,7 +167,6 @@ class ClienteControllerTest {
 
     @Test
     void actualizarClienteInexistenteDebeRetornar404() throws Exception {
-
         String cliente = """
                 {
                     "nombre": "Prueba",
@@ -204,7 +201,6 @@ class ClienteControllerTest {
 
     @Test
     void clienteEliminadoDebeDejarDeExistir() throws Exception {
-
         mockMvc.perform(delete("/api/clientes/3"))
                 .andExpect(status().isNoContent());
 

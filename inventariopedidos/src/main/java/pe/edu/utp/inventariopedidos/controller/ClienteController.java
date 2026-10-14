@@ -20,13 +20,11 @@ public class ClienteController {
         this.clienteService = clienteService;
     }
 
-    // GET - Listar todos los clientes
     @GetMapping
     public List<Cliente> listarTodos() {
         return clienteService.listarTodos();
     }
 
-    // GET - Buscar un cliente por ID
     @GetMapping("/{id}")
     public ResponseEntity<Cliente> buscarPorId(@PathVariable Long id) {
 
@@ -37,7 +35,6 @@ public class ClienteController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // POST - Crear un nuevo cliente
     @PostMapping
     public ResponseEntity<Cliente> crear(@RequestBody Cliente cliente) {
 
@@ -48,7 +45,6 @@ public class ClienteController {
                 .body(nuevo);
     }
 
-    // PUT - Actualizar un cliente existente
     @PutMapping("/{id}")
     public ResponseEntity<Cliente> actualizar(
             @PathVariable Long id,
@@ -60,7 +56,6 @@ public class ClienteController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // DELETE - Eliminar un cliente
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
 
